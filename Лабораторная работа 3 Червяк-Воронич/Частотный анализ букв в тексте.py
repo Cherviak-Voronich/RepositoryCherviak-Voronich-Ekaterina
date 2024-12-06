@@ -5,10 +5,9 @@ def count_letters(main_str):
     new_str = "".join(f)
     my_dict = {}
     for word in new_str:
-        if word not in my_dict:
-            sr_snach = new_str.count(word)/len(new_str)
-            sr_snach = '%.2f' % sr_snach
-            my_dict[word] = sr_snach
+        sr_snach = new_str.count(word)/len(new_str)
+        sr_snach = '%.2f' % sr_snach
+        my_dict[word] = sr_snach
     return my_dict
 
 # TODO Напишите функцию calculate_frequency
