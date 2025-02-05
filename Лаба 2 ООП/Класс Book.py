@@ -10,10 +10,8 @@ BOOKS_DATABASE = [
         "pages": 400,
     }
 ]
-
-
-# TODO написать класс Book
 from typing import Union
+# TODO написать класс Book
 class Book:
     def __init__(self, id: Union[int, float], name: Union[str], pages: Union[int, float]):
         self.id = id
@@ -28,38 +26,12 @@ class Book:
 
 
 
-# TODO написать класс Library
-class Library:
-    def __init__(self, books: list = None):
-        if books is None:
-            self.books = []
-        else:
-            self.books = books
-
-    def get_next_book_id(self) -> int:
-        if not self.books:
-            return 1
-        else:
-            return self.books[-1].id + 1
-
-    def get_index_by_book_id(self, id: int) -> int:
-        for index, book in enumerate(self.books):
-            if book.id == id:
-                return index
-        raise ValueError("Книги с запрашиваемым id не существует")
-
-
-
-
-
 if __name__ == '__main__':
-    empty_library = Library()  # инициализируем пустую библиотеку
-    print(empty_library.get_next_book_id())  # проверяем следующий id для пустой библиотеки
-
+    # инициализируем список книг
     list_books = [
         Book(id=book_dict["id"], name=book_dict["name"], pages=book_dict["pages"]) for book_dict in BOOKS_DATABASE
     ]
-    library_with_books = Library(books=list_books)  # инициализируем библиотеку с книгами
-    print(library_with_books.get_next_book_id())  # проверяем следующий id для непустой библиотеки
+    for book in list_books:
+        print(book)  # проверяем метод __str__
 
-    print(library_with_books.get_index_by_book_id(1))  # проверяем индекс книги с id = 1
+    print(list_books)  # проверяем метод __repr__
