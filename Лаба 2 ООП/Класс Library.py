@@ -40,11 +40,11 @@ class Library:
         if not self.books:
             return 1
         else:
-            return self.books[-1]['id'] + 1
+            return self.books[-1].id + 1
 
     def get_index_by_book_id(self, id: int) -> int:
         for index, book in enumerate(self.books):
-            if book['id'] == id:
+            if book.id == id:
                 return index
         raise ValueError("Книги с запрашиваемым id не существует")
 
